@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <%= link_to "codemyapp", root_path, class: "navbar-brand" %>
+
+    <% if current_user.present? %>
+
+        <p style= "text-align: right", class="text-info"> 
+          
+              
+             <%= current_user.email %> 
+        </p> 
+        <% else %>
+        <p>
+          <span class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link active" %>
+           </span>
+
+            <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link active" %>
+           </li>
+        </p>
+      <% end %>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <%= link_to "home", root_path, class: "nav-link active" %>
+        </li>
+
+        
+
+         
+
+         
+          <li class="nav-item">
+          <%= link_to "about us", home_about_path, class: "nav-link active" %>
+         </li>
+         
+         <% if user_signed_in? %>
+
+
+         <li class="nav-item">
+          <%= link_to "friends", friends_path, class: "nav-link active" %>
+         </li>
+
+         <li class="nav-item">
+          <%= link_to "add friend", new_friend_path, class: "nav-link active" %>
+         </li>
+
+            <li class="nav-item">
+              <%= link_to "Sign out", destroy_user_session_path, data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+              }, class: "nav-link active" %>
+            </li>
+
+           
+            <li class="nav-item">
+            <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link active" %>
+           </li>
+        <!-- <%# else %>
+
+            <li class="nav-item">
+            <%#= link_to "Sign up", new_user_registration_path, class: "nav-link active" %>
+           </li>
+
+            <li class="nav-item">
+            <%#= link_to "Sign in", new_user_session_path, class: "nav-link active" %>
+           </li>
+         -->
+          <% end %> 
+
+         
+          
+         
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

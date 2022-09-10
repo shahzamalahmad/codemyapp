@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Editing friend</h1>
+  </div>
+  
+    <%= render "form", friend: @friend %>
+
+</div>
+
+<br>
+
+<div class="action">
+
+  <%= link_to "Show", friend_path, class: "btn btn-dark" %> 
+
+ 
+  
+  <%= link_to "Back", friends_path, class: "btn btn-dark" %>
+</div>

@@ -1,0 +1,22 @@
+<div class="card">
+
+  <div class="card-header">
+    <h1>New friend</h1>
+  </div>
+  <br>
+   <div style="margin-top: 10px;">
+
+       <%= render "form", friend: @friend %>
+   </div>
+</div>
+
+<br>
+
+<div>
+   <%= link_to "home", root_path, class:"btn btn-secondary" %>
+    &nbsp
+    &nbsp
+    &nbsp
+    &nbsp
+  <%= link_to "Back", friends_path, class:"btn btn-secondary" %>
+</div>

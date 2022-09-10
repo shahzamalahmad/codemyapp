@@ -1,0 +1,65 @@
+<% if user_signed_in? %>
+
+
+      <table class="table table-striped">
+         <thead class="table-active">
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Twitter</th>
+            <th scope="col">whatsapp</th>
+            <th scope="col">User ID</th>
+            <th colspan="1"></th>
+
+          </tr>
+        </thead>
+
+
+        <tbody>
+
+           <% @friends.each do |friend| %>
+
+              <% if friend.user == current_user %>
+
+                <tr>
+               
+                  <td>  <%= link_to friend.first_name + ' ' + friend.last_name, friend %> </td>
+                  <td> <%= friend.email %> </td>
+                  <td> <%= friend.phone %> </td>
+                  <td> <%= friend.twitter %> </td>
+                  <td> <%= friend.whatsapp_no %> </td>
+                  <td> <%= friend.user_id %> </td>
+
+
+                   <!-- <td> <%#= link_to "Edit", edit_friend_path(friend) %> </td> -->
+
+
+                        <td> <%= link_to "Delete", friend_path(friend), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                        }, class: "btn btn-outline-danger btn-sm" %> </td>
+
+                </tr>
+             <% end %>
+          <% end %>
+         
+          
+        </tbody>
+      </table>
+  <% else %>
+
+
+      <h1>Hallo world!</h1>
+      This is my first rails webpage...
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+  <% end %>
+
+
